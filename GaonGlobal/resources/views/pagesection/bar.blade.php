@@ -4,6 +4,8 @@
         </div>
         <hr>
         <br>
+       <center><strong>Abhinendra Singh</strong></center>
+        <br>
       <span class="userProfileContainer"><img class="userProfile" src="{{asset('images/DALL·E 2024-10-13 20.42.41 - A vibrant and colorful anonymous user profile picture. The image should feature a simple, neutral silhouette of a person with no defining features, us.webp')}}" alt="">     <button><a href="">Logout</a></button></span>
       <br>
       <hr>
