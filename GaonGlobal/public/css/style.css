@@ -270,6 +270,14 @@ transition:background-image 1.06s ease-in-out;
     margin: 12px 12px;
     cursor: pointer;
 }
+.FormVailidationErrors{
+    color: red;
+    font-size: 18px;
+}
+.captcha{
+    display: flex;
+    padding: 8px 16px;
+}
  /* Media queries appeares here */
  @media screen and (max-width: 1306px) {
     header nav ul form input{
