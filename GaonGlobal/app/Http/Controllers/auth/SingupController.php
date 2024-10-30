@@ -19,8 +19,12 @@ class SingupController extends Controller
      if($seller != $type && $buyer != $type){
         abort(404);
      }
-
+      if(Auth::check()){
+         return redirect()->back();
+      }
+      else{
       return view('auth.index', compact('type'));
+      }
     }
 
     public function registration(registrationRequest $request){
@@ -30,12 +34,33 @@ class SingupController extends Controller
             ['type'=> $request->input('type')]
            ));
            if($user){
-           Auth::login($user, true);
-           return redirect()->route('home');
+            Auth::login($user, true);
+            return redirect()->route('home')->with('login','Your account has been successfully created and you have successfully logged in.');
            }
         }
         else{
              return redirect()->back();
+        }
+    }
+
+    public function logout(){
+        if(!Auth::check()){
+            return redirect()->back();
+        }
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
+    public function login (Request $request){
+        if(Auth::check()){
+            return redirect()->back();
+        }
+        $credentials=$request->only('email','password');
+        if(Auth::attempt($credentials)){
+            return redirect()->route('home')->with('login', 'you have successfully logged in.');
+        }
+        else{
+             return redirect()->back()->with('error', 'Invalid credentials.');
         }
     }
 }

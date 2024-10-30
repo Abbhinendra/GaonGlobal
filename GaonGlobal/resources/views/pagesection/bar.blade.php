@@ -4,14 +4,25 @@
         </div>
         <hr>
         <br>
-       <center><strong>Abhinendra Singh</strong></center>
+        @if(auth()->check())
+        <center><strong>{{auth()->user()->name}}</strong></center>
+        @else
+        <center><strong>anonmymous user</strong></center>
+        @endif
         <br>
-      <span class="userProfileContainer"><img class="userProfile" src="{{asset('images/DALL·E 2024-10-13 20.42.41 - A vibrant and colorful anonymous user profile picture. The image should feature a simple, neutral silhouette of a person with no defining features, us.webp')}}" alt="">     <button><a href="">Logout</a></button></span>
+      <span class="userProfileContainer"><img class="userProfile" src="{{asset('images/DALL·E 2024-10-13 20.42.41 - A vibrant and colorful anonymous user profile picture. The image should feature a simple, neutral silhouette of a person with no defining features, us.webp')}}" alt="">     @if (auth()->check())
+
+      <button><a href="{{route('logout')}}">Logout</a></button> @endif</span>
       <br>
       <hr>
       <br>
         <div  class="content">
+        @if (!auth()->check())
         <button><a href="{{route('signupoption.index')}}"> Singup</a></button>
+        @endif
+        @if (!auth()->check())
+        <button><a href="{{route('loginPage')}}"> Login</a></button>
+        @endif
         <button><a href=""> About</a></button>
         <button><a href=""> About</a></button>
         <button><a href=""> About</a></button>

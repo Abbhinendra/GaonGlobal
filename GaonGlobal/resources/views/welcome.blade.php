@@ -1,4 +1,5 @@
 @extends('masterlayout.aap')
+{{-- success messages --}}
 @section('content')
 <section class="slides">
     <div class="bar" style="padding: 9px;">
@@ -6,4 +7,19 @@
         </div>
     @include('pagesection.bar')
 </section>
+@if (session()->has('login'))
+<div class="success-message">
+    <span>{{session('login')}}</span>
+</div>
+@endif
 @endsection
+@push('js')
+<script>
+    let successMessage=document.querySelector('.success-message');
+    if(successMessage){
+       setTimeout(() => {
+       successMessage.style.display="none";
+       }, 2000);
+    }
+</script>
+@endpush

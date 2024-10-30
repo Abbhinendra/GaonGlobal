@@ -12,7 +12,12 @@ class SingupOptionController extends Controller
      */
     public function index()
     {
-        return view('auth.signupoption');
+        if(auth()->check()){
+           return redirect()->back();
+        }
+        else{
+          return view('auth.signupoption');
+        }
     }
 
     /**
@@ -20,7 +25,7 @@ class SingupOptionController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -61,5 +66,13 @@ class SingupOptionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function loginPage(){
+        if(auth()->check()){
+            return redirect()->back();
+         }
+         else{
+           return view('auth.login');
+         }
     }
 }
