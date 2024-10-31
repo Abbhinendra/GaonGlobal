@@ -270,6 +270,19 @@ transition:background-image 1.06s ease-in-out;
     margin: 12px 12px;
     cursor: pointer;
 }
+
+.sinuppage form a{
+    border: none;
+    padding: 18px;
+    font-size: 22px;
+    margin: 12px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: blueviolet;
+
+}
+
+
 .FormVailidationErrors{
     color: red;
     font-size: 18px;
@@ -288,6 +301,26 @@ transition:background-image 1.06s ease-in-out;
 .success-message span{
     color: white;
     font-size: 20px;
+}
+.success{
+    padding:12px;
+    border-radius: 9px;
+    background-color: #c3e6cb;
+    width: 90%;
+    margin: auto;
+}
+.success span{
+    color: green;
+}
+.error{
+    padding:12px;
+    border-radius: 9px;
+    background-color: rgba(255, 0, 0, 0.6);
+    width: 90%;
+    margin: auto;
+}
+.error span{
+    color: white;
 }
  /* Media queries appeares here */
  @media screen and (max-width: 1306px) {

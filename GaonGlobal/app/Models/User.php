@@ -23,7 +23,8 @@ class User extends Authenticatable
         'type',
         'role',
         'rating',
-        'seller_amount'
+        'seller_amount',
+        'google_id'
     ];
 
     /**
