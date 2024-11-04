@@ -2,6 +2,8 @@
 let bar=document.querySelector(".bar img");
 let pages=document.querySelector(".pages");
 let cross=pages.querySelector(".cross img");
+let showProfileEditPage=document.querySelector('.show-profile-edit-page');
+
 if(bar){
     bar.addEventListener('click', ()=>{
     if(pages){
@@ -39,3 +41,5 @@ let  slidecount=0;
         slides.style.backgroundImage=`url("${slideImages[slidecount]}")`;
      }
      }, 12000);
+
+

@@ -14,6 +14,11 @@
 
       <button><a href="{{route('logout')}}">Logout</a></button> @endif</span>
       <br>
+      @if (auth()->check())
+      @if(auth()->user()->type === 'seller' && (auth()->user()->seller_amount == null || auth()->user()->seller_amount <=0 ))
+      <span  class="payment-alert-if-user-is-seller">Please complete your payment because your account is a seller account so you need to pay first then you will be able to use all services.</span>
+      @endif
+      @endif
       <hr>
       <br>
         <div  class="content">
@@ -23,8 +28,12 @@
         @if (!auth()->check())
         <button><a href="{{route('loginPage')}}"> Login</a></button>
         @endif
-        <button><a href=""> About</a></button>
-        <button><a href=""> About</a></button>
+        @if(auth()->check() && auth()->user()->type === 'seller')
+        <button><a href="{{route('frontend.payment-page')}}">Pricing</a></button>
+        @endif
+        @if(auth()->check())
+        <button><a href="{{route('profile.index')}}"> Profile</a></button>
+        @endif
         <button><a href=""> About</a></button>
         <button><a href=""> About</a></button>
         <button><a href=""> About</a></button>

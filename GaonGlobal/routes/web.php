@@ -4,6 +4,11 @@ use App\Http\Controllers\auth\SingupOptionController;
 use App\Http\Controllers\auth\SingupController;
 use App\Http\Controllers\auth\GoogleController;
 use App\Http\Controllers\auth\ForgotPasswordController;
+
+//forntend controllers start here
+use App\Http\Controllers\frontend\PaymentGateWayController;
+use App\Http\Controllers\frontend\ProfileController;
+
 //home page
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +34,10 @@ Route::get('/forgot-password-page', [ForgotPasswordController::class,'index'])->
 Route::post('/pass-reset-link', [ForgotPasswordController::class,'sendPassResetLink'])->name('passReset');
 Route::get('/reset-pass', [ForgotPasswordController::class,'resetPass'])->name('resetPass');
 Route::post('/change-pass',[ForgotPasswordController::class,'changePassword'])->name('changePass');
+
+
+//Fontend routes start here
+Route::prefix('frontend')->middleware(['authcheck'])->group(function(){
+    Route::get('payment-page',[PaymentGateWayController::class,'paymentPage'])->middleware('can:only-seller-allow')->name('frontend.payment-page');
+    Route::resource('/profile',ProfileController::class);
+});

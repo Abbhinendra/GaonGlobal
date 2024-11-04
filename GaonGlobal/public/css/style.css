@@ -322,6 +322,150 @@ transition:background-image 1.06s ease-in-out;
 .error span{
     color: white;
 }
+.payment-alert-if-user-is-seller{
+    color: rgb(255, 0, 0);
+}
+
+.paymentgatewaypage{
+    position: absolute;
+    top: 146px;
+    right: 0;
+    width: 100vw;
+    z-index: -10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.paymentgatewaypage .payment-box{
+    width: 426px;
+    height: 69vh;
+    border: 2px solid lightgreen;
+    border-radius: 9px;
+    margin: 12px 12px;
+    position: relative;
+}
+
+.paymentgatewaypage .payment-box .payment-days{
+    font-size: 2.8rem;
+    color: white;
+    padding: 12px;
+    background-color: rgb(153, 255, 0);
+    text-align: center;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+.paymentgatewaypage .payment-box .payment-rs{
+    font-size: 2.8rem;
+    color: white;
+    padding: 12px;
+    background-color: rgb(127, 189, 33);
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.paymentgatewaypage .payment-box ul li{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 26px;
+    list-style: none;
+    word-break: break-word;
+}
+.paymentgatewaypage .payment-box a{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 17px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    font-size: 29px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+.user-profile-section{
+    position: absolute;
+    top: 152px;
+    right: 0;
+    width: 100vw;
+    z-index: -10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-profile-section a{
+    padding: 12px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    border: none;
+    outline: 2px solid lightgreen;
+    border-radius: 9px;
+    text-decoration: none;
+    margin: 12px;
+    width: 70vw;
+    text-align: center;
+}
+.user-profile-section h2{
+    padding: 12px;
+}
+.user-profile-section div{
+    padding: 12px;
+    border: 2px solid lightgreen;
+    border-radius: 9px;
+    font-size: 20px;
+    margin: 12px 12px;
+    width: 70%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.user-profile-section form{
+    width: 70vw;
+    margin: auto;
+}
+.user-profile-section form input{
+    padding: 12px;
+    background-color: black;
+    border: none;
+    border-radius: 9px;
+    outline: 2px solid lightgreen;
+    color: white;
+    font-size: 19px;
+    margin: 12px;
+    width: 70vw;
+}
+.user-profile-section form select{
+    padding: 12px;
+    background-color: black;
+    border: none;
+    border-radius: 9px;
+    outline: 2px solid lightgreen;
+    color: white;
+    font-size: 19px;
+    margin: 12px;
+    width: 70vw;
+}
+.user-profile-section form button{
+    padding: 12px;
+    background-color: black;
+    border: none;
+    border-radius: 9px;
+    outline: 2px solid lightgreen;
+    color: white;
+    font-size: 20px;
+    margin: 12px;
+    width: 70vw;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
  /* Media queries appeares here */
  @media screen and (max-width: 1306px) {
     header nav ul form input{
@@ -549,4 +693,33 @@ transition:background-image 1.06s ease-in-out;
         padding: 12px;
         font-size: 18px;
     }
+ }
+
+
+ @media screen and (max-width: 898px){
+    .paymentgatewaypage .payment-box{
+        width: 626px;
+    }
+ }
+
+ @media screen and (max-width: 660px){
+    .paymentgatewaypage .payment-box{
+        width: 526px;
+    }
+ }
+
+ @media screen and (max-width: 460px){
+    .paymentgatewaypage .payment-box{
+        width: 426px;
+    }
+ }
+
+ @media screen and (max-width:351px) {
+    .paymentgatewaypage .payment-box .payment-days{
+        font-size: 2.1rem;
+    }
+    .paymentgatewaypage .payment-box .payment-rs{
+        font-size: 2.1rem;
+    }
+
  }
