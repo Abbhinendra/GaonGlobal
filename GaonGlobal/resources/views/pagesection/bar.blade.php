@@ -10,11 +10,21 @@
         <center><strong>anonmymous user</strong></center>
         @endif
         <br>
-      <span class="userProfileContainer"><img class="userProfile" src="{{asset('images/DALL·E 2024-10-13 20.42.41 - A vibrant and colorful anonymous user profile picture. The image should feature a simple, neutral silhouette of a person with no defining features, us.webp')}}" alt="">     @if (auth()->check())
-
+      <span class="userProfileContainer">
+        @if(!auth()->check())
+        <img class="userProfile" src="{{asset('images/DALL·E 2024-10-13 20.42.41 - A vibrant and colorful anonymous user profile picture. The image should feature a simple, neutral silhouette of a person with no defining features, us.webp')}}" alt="">
+        @endif
+        @if (auth()->check())
+        @if(auth()->user()->getFirstMediaUrl('profileImage'))
+        <img class="userProfile" src="{{ asset(auth()->user()->getFirstMediaUrl('profileImage')) }}" alt="">
+        @else
+        <img class="userProfile" src="{{asset('images/DALL·E 2024-10-13 20.42.41 - A vibrant and colorful anonymous user profile picture. The image should feature a simple, neutral silhouette of a person with no defining features, us.webp')}}" alt="">
+        @endif
+      <img class="cameraIcon" style="width:48px;" src="{{asset('images/camera.png')}}" alt="">
       <button><a href="{{route('logout')}}">Logout</a></button> @endif</span>
       <br>
       @if (auth()->check())
+      <input type="file" id="profileImage" accept=".jpeg,.jpg,.png,.webp,.gif" hidden/>
       @if(auth()->user()->type === 'seller' && (auth()->user()->seller_amount == null || auth()->user()->seller_amount <=0 ))
       <span  class="payment-alert-if-user-is-seller">Please complete your payment because your account is a seller account so you need to pay first then you will be able to use all services.</span>
       @endif

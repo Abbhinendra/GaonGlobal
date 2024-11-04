@@ -1,9 +1,12 @@
 // strat GaonGloable fontend site logic here
+import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 let bar=document.querySelector(".bar img");
 let pages=document.querySelector(".pages");
 let cross=pages.querySelector(".cross img");
 let showProfileEditPage=document.querySelector('.show-profile-edit-page');
-
+let cameraIcon=document.querySelector('.cameraIcon');
+let profileImage=document.querySelector('#profileImage');
+let userProfile=document.querySelector('.userProfile');
 if(bar){
     bar.addEventListener('click', ()=>{
     if(pages){
@@ -18,6 +21,35 @@ if(cross){
             pages.style.transform="translateX(-180%)";
         }
     });
+}
+
+if(cameraIcon){
+    cameraIcon.addEventListener('click', ()=>{
+    if(profileImage){
+        profileImage.click();
+    }
+    });
+}
+
+if(profileImage){
+    profileImage.addEventListener('change', function(){
+        let file=profileImage.files[0];
+        let url=URL.createObjectURL(file);
+        if(userProfile){
+           if(file.type.includes('image')){
+              userProfile.src=url;
+           }
+           let formData = new FormData();
+           formData.append('url', file);
+           axios.post('/frontend/update-user-image' , formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            }
+          }).then(response=>{
+
+          });
+        }
+    })
 }
 
 //Add slide logic here

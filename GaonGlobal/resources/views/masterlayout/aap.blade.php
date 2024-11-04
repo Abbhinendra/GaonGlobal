@@ -16,6 +16,7 @@
 @yield('content')
 </body>
 @stack('js')
-<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/main.js')}}" type="module"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
+
 </html>

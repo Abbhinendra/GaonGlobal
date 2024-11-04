@@ -142,10 +142,16 @@ transition:background-image 1.06s ease-in-out;
     border-radius: 50%;
 }
 .userProfileContainer{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+}
+.cameraIcon{
+    position: absolute;
+    left: 0;
+    bottom: -16px;
 }
 
 .userProfileContainer button  a{

@@ -76,4 +76,18 @@ class ProfileController extends Controller
     {
         //
     }
+
+    public function addProfileImage(Request $request){
+        $request->validate([
+            'url' => 'required|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
+        ]);
+        if(!auth()->check()){
+            return redirect()->back();
+        }
+        if($request->hasFile('url')){
+            $user=User::find(auth()->id());
+            $user->clearMediaCollection('profileImage');
+            $user->addMediaFromRequest('url')->toMediaCollection('profileImage');
+        }
+    }
 }

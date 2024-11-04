@@ -40,4 +40,5 @@ Route::post('/change-pass',[ForgotPasswordController::class,'changePassword'])->
 Route::prefix('frontend')->middleware(['authcheck'])->group(function(){
     Route::get('payment-page',[PaymentGateWayController::class,'paymentPage'])->middleware('can:only-seller-allow')->name('frontend.payment-page');
     Route::resource('/profile',ProfileController::class);
+    Route::post('/update-user-image', [ProfileController::class, 'addProfileImage']);
 });
