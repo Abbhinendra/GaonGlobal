@@ -16,12 +16,7 @@
 @csrf
 @method('PUT')
 <input type="text" name="name"  value="{{$user->name}}">
-<input type="text" value="{{$user->email}}">
-<select name="type">
-    <option value="{{$user->type}}" selected>{{$user->type}}</option>
-    <option value="buyer">buyer</option>
-    <option value="seller">seller</option>
-</select>
+<input type="text" value="{{$user->email}}" readonly>
 <button type="submit">Save</button>
 </form>
 </section>
