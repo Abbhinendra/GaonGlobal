@@ -97,6 +97,7 @@ header nav ul li a{
   z-index: 12;
   transform: translateX(-180%);
   transition:transform  1s ease-in;
+  padding-bottom: 200px;
 }
 .pages .content{
     display: flex;
