@@ -58,15 +58,11 @@ class ProfileController extends Controller
            return redirect()->back();
         }
         $user=User::find($id);
-        if($request->type === 'seller' || $request->type === 'buyer'){
         $user->update(['name'=>$request->name,
-                       'type'=>$request->type
+
         ]);
-            return redirect()->route('profile.index');
-       }
-       else{
-            return redirect()->back();
-       }
+        return redirect()->route('profile.index');
+
     }
 
     /**
