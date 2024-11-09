@@ -42,3 +42,9 @@ Route::prefix('frontend')->middleware(['authcheck'])->group(function(){
     Route::resource('/profile',ProfileController::class);
     Route::post('/update-user-image', [ProfileController::class, 'addProfileImage']);
 });
+
+Route::prefix('admin')->group(function(){
+Route::get('/', function(){
+return view('admin.dashboard.index');
+});
+});
